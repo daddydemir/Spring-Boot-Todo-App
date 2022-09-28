@@ -9,6 +9,6 @@ https://user-images.githubusercontent.com/42716195/192875146-dea8115c-f4dd-4c1e-
 
 
 ## IMAGES 
-![Swagger Screen Shot](https://raw.githubusercontent.com/daddydemir/Spring-Boot-Todo-App/main/output_images/swagger.png?token=GHSAT0AAAAAABPJ65PVPMV5CXXKYEXRM6UMYZUUS6A)
+![Swagger Screen Shot](https://github.com/daddydemir/Spring-Boot-Todo-App/blob/main/output_images/swagger.png?raw=true)
 
-![Home Page Screen Shot](https://raw.githubusercontent.com/daddydemir/Spring-Boot-Todo-App/main/output_images/todos.png?token=GHSAT0AAAAAABPJ65PUAYCREDWR7FOZDCNUYZUUTVQ)
+![Home Page Screen Shot](https://github.com/daddydemir/Spring-Boot-Todo-App/blob/main/output_images/todos.png?raw=true)
