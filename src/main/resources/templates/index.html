@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>All My Todos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">TODO APP</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <label style="padding-right: 20px;" th:text="${username.name}"> </label>
+
+                <button class="btn btn-secondary"> <a style="text-decoration: none; color: black;" href="/logout"> Logout </a> </button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <form method="post" th:action="@{todo/save}" th:object="${todo}">
+        <div class="form-row align-items-center">
+            <div class="col-sm-9 my-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#ToDo</div>
+                    </div>
+                    <input type="text" th:field="*{title}" class="form-control" id="inlineFormInputGroupUsername"
+                           placeholder="what do you want to do?">
+                </div>
+            </div>
+            <div class="col-sm-2 my-1">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ToDo</th>
+            <!--            <th scope="col">isCompleted</th>-->
+<!--            <th scope="col"> isCompleted</th>-->
+            <th scope="col">Complete</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item: ${list}">
+<!--            <span th:if="${item.isCompleted}"><strike> sa </strike></span>-->
+            <td th:name="userId" th:text="${item.id}"></td>
+            <td  th:if="${item.completed}"> <strike th:text="${item.title}"> </strike></td>
+            <td  th:unless="${item.completed}" th:text="${item.title}"> </td>
+<!--            <td th:text="${item.completed}"></td>-->
+            <!---->
+            <td>
+                <button class="btn btn-warning"> <a th:href="@{todo/complete/?id={id}(id=${item.id})}" style="text-decoration: none; color: white;"> <tag th:if="${item.completed}"> Uncomplete </tag> <tag th:unless="${item.completed}"> Complete</tag> </a> </button>
+            </td>
+            <td>
+                <button class="btn btn-danger"> <a th:href="@{todo/delete/?id={id}(id=${item.id})}" style="text-decoration: none; color: white;"> Delete </a></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+
+</html>
